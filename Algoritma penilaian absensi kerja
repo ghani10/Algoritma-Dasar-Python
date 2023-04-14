@@ -1,0 +1,39 @@
+#""" Mempersiapkan data acuan jam masuk kantor """
+
+#data acuan absensi
+acuan_jam_masuk = ['08.00', '09.00', '07.00']
+acuan_jam_keluar = ['16.00', '17.00', '18.00']
+
+#""" menginput data masuk dan keluar """
+#input data masuk dan pulang
+jam_masuk = input('jam masuk kantor : ')
+jam_keluar = input('jam keluar kantor : ')
+
+#""" Fungsi mengecek jam masuk """
+def cek_jam_masuk(jam_masuk):
+  for x in range(0, len(acuan_jam_masuk)):
+    if acuan_jam_masuk[x] == jam_masuk:
+      level = acuan_jam_masuk[x]
+      
+  if level in acuan_jam_masuk:
+    print('selamat datang')
+  else:
+    print('maaf kesiangan')
+
+
+#""" Fungsi mengecek jam keluar """
+stage = ''
+def cek_jam_keluar(jam_keluar):
+  for x in range(0, len(acuan_jam_keluar)):
+    if acuan_jam_keluar[x] == jam_keluar:
+      stage = acuan_jam_keluar[x]
+    elif jam_keluar not in acuan_jam_keluar:
+      return print('not good work')
+
+  if stage in acuan_jam_keluar:
+    return print('terimakasih telah bekerja')
+    
+
+#""" Menjalankan fungsi """
+cek_jam_masuk(jam_masuk)
+cek_jam_keluar(jam_keluar)
