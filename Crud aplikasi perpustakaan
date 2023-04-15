@@ -1,0 +1,88 @@
+# MEMBUAT LIST GLOBAL BUKU
+Buku =[
+    
+]
+
+
+def Daftar_Buku():
+  """ 
+  fungsi menampilkan isi data Buku
+  """
+  if len(Buku) <= 0:
+    print("Data eror, Sedang dalam Maintance")
+  else :
+    for indeks in range(len(Buku)):
+      print(f"""
+      Id    : {indeks}
+      Buku  : {Buku[indeks]}
+      """)
+
+def Menambah_Buku():
+  """
+  fungsi Menambah isi data buku
+  """
+  Masukan_Judul_Buku = input("Masukan Judul Buku : ")
+  Masukan_Indeks = int(input("Masukan Indeks : "))
+  Buku.insert(Masukan_Indeks, Masukan_Judul_Buku)
+
+def Edit_Isi_Database_Buku():
+  """
+  fungsi untuk merubah isi database buku
+  """
+  Daftar_Buku()
+  print("indeks di mulai dari 0 ")
+  Cari_Indeks = int(input("Masukan Id buku : "))
+  Indeks = int(Cari_Indeks)
+
+  if Indeks < 0 :
+    print('maaf ID tidak di temukan')
+  else:
+    Judul = input("Masukan Judul Baru : ")
+    Buku[Indeks] = Judul
+
+def Menghapus_Buku_Di_Database():
+  """
+  Fungsi untuk menghapus Buku di database
+  """
+  Masukan_Judul = input("Masukan Judul Buku : ")
+
+  if Masukan_Judul in Buku:
+    Buku.remove(Masukan_Judul)
+    print(f"Buku {Masukan_Judul} sudah berhasil")
+    print(f"""
+    {Daftar_Buku()}
+    """)
+  else:
+    print("Maaf judul buku tidak di temukan ")
+
+def Main():
+  nyala = True
+  while(nyala != False):
+    print(10*" = ")
+    print("""
+    Selamat datang di Program perpustakaan digital 
+    """)
+    print(10*" = ")
+    Daftar_Buku()
+    print("""
+    Masukan pilihan : 
+    1. Menambahkan Buku
+    2. Mengedit Data Buku
+    3. Menghapus Buku Dari Database
+    4. exit
+    """)
+
+    pilihan = int(input("Masukan pilihan : "))
+
+    if pilihan == 1:
+      Menambah_Buku()
+    elif pilihan == 2:
+      Edit_Isi_Database_Buku()
+    elif pilihan == 3:
+      Menghapus_Buku_Di_Database()
+    elif pilihan == 4:
+      nyala = False
+    else:
+      Print("pilihan tidak valid")
+
+Main()
